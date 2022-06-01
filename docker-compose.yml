@@ -22,7 +22,7 @@ services:
       HASURA_ACTION_SECRET: '${HASURA_ACTION_SECRET:-secret}'
 
   postgres:
-    image: postgres:12
+    image: postgres:14
     restart: always
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
