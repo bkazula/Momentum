@@ -12,7 +12,7 @@
 ### Quick start
 
 Development without local backend depends on setting `API_URL` in `packages/app/.env` to
-`https://momentum.scrlk.pl/graphql`. Do not do this if you intend to use local backend.
+`https://momentum.bkweb.dev/graphql`. Do not do this if you intend to use local backend.
 
 Only step needed to start frontend after that is `yarn && yarn app` command.
 
