@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   backend:
-    image: registry.gitlab.com/tymek/momentum:latest
+    image: registry.gitlab.com/bkazula/momentum:latest
     labels:
       - traefik.enable=true
       - traefik.http.services.momentum.loadbalancer.server.port=3000
