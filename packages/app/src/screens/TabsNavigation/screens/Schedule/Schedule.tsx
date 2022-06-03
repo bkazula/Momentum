@@ -60,7 +60,7 @@ const DaysTabs: FC = () => {
 const Schedule: FC = () => {
   return (
     <>
-      <Header>MOMENTUM KONF 2021</Header>
+      <Header>MOMENTUM KONF 2022</Header>
       <ErrorBoundary>
         <DaysTabs />
       </ErrorBoundary>

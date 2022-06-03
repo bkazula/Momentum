@@ -3,7 +3,7 @@ import { KeyboardDateTimePicker } from '@material-ui/pickers'
 import { useInput, useTranslate, FieldTitle } from 'ra-core'
 import { InputHelperText } from 'ra-ui-materialui'
 
-const eventStartDate = moment('2021-07-12 12:00').toDate()
+const eventStartDate = moment('2022-07-11 12:00').toDate()
 
 const DateTimeInput = ({ ...props }) => {
   const { label, resource, source, helperText } = props
