@@ -9,7 +9,10 @@ const useNotifications = (): ReturnType<typeof useGetNotificationsQuery> & {
   readNotifications?: string[]
   setReadNotifications: Dispatch<SetStateAction<string[] | undefined>>
 } => {
-  const result = useGetNotificationsQuery({ pollInterval: 5000 })
+  const result = useGetNotificationsQuery({
+    pollInterval: 5000,
+    fetchPolicy: 'cache-and-network',
+  })
   const [readNotifications, setReadNotifications, isLoaded] = useAsyncJsonStorage<string[]>(
     'READ_NOTIFICATIONS',
     [],

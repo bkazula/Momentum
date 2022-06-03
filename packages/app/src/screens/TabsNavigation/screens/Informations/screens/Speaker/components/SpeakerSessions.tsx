@@ -17,6 +17,7 @@ const SpeakerSessions: FC<SpeakerSessionsProps> = ({ id }) => {
   const { data } = useGetSpeakerSessionsQuery({
     variables: { speaker_id: id },
     pollInterval: 10000,
+    fetchPolicy: 'cache-and-network',
   })
   const hasItems = data && (data?.session.length > 0 || data?.topic.length > 0)
 
