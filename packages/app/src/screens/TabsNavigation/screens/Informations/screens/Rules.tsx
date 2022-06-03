@@ -2,6 +2,20 @@ import React, { FC } from 'react'
 
 import TextPage from 'components/TextPage'
 import Markdown from 'components/Markdown'
+import styled from '@emotion/native'
+import { Link } from '@react-navigation/native'
+import { View } from 'react-native'
+
+const Column = styled.View`
+  flex: 1;
+  justify-content: space-between;
+`
+
+const VisibleLink = styled(Link)`
+  padding-top: 100px;
+  color: ${({ theme }) => theme.color.text};
+  font-family: ${({ theme }) => theme.font.default};
+`
 
 const rules = `
 1. Każdy uczestnik KONFERENCJI MOMENTUM 2022 zobowiązany jest nosić opaskę, otrzymaną podczas rejestracji i stanowiącą jego identyfikator podczas imprezy. 
@@ -16,10 +30,17 @@ const rules = `
 10. Każdy uczestnik KONFERENCJI MOMENTUM 2022 wyraża zgodę na rozpowszechnianie jego wizerunku w różnego rodzaju materiałach promocyjnych oraz w prasie i mediach.
 `
 
-const Rules: FC = () => (
-  <TextPage>
-    <Markdown>{rules}</Markdown>
-  </TextPage>
-)
+const Rules: FC = () => {
+  return (
+    <TextPage>
+      <Column>
+        <Markdown>{rules}</Markdown>
+        <View>
+          <VisibleLink to="/info/o-aplikacji">O aplikacji</VisibleLink>
+        </View>
+      </Column>
+    </TextPage>
+  )
+}
 
 export default Rules

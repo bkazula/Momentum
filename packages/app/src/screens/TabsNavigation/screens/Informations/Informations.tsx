@@ -10,13 +10,7 @@ import Songs from './screens/Songs'
 import Song, { ParamList as SongParamList } from './screens/Song'
 import Speaker, { ParamList as SpeakerParamList } from './screens/Speaker'
 import InfoCard from './components/InfoCard'
-import {
-  TileGrid,
-  TileRow,
-  TileColumn,
-  TileColumnLeft,
-  TileColumnRight,
-} from './components/TileGrid'
+import { TileGrid, TileRow, TileColumn } from './components/TileGrid'
 import Header from 'components/Header'
 import ErrorBoundary from 'containers/error/Boundary'
 import useDarkTheme from 'hooks/useDarkTheme'
@@ -117,7 +111,7 @@ const InformationsScreen: FC = () => {
             </TileColumn>
           </TileRow>
           <TileRow>
-            <TileColumnLeft>
+            <TileColumn>
               <InfoCard
                 image={
                   isDark
@@ -128,19 +122,7 @@ const InformationsScreen: FC = () => {
               >
                 Regulamin
               </InfoCard>
-            </TileColumnLeft>
-            <TileColumnRight>
-              <InfoCard
-                image={
-                  isDark
-                    ? require('assets/images/info/o-aplikacji.jpg')
-                    : require('assets/images/info/o-aplikacji-light.jpg')
-                }
-                link="/info/o-aplikacji"
-              >
-                O aplikacji
-              </InfoCard>
-            </TileColumnRight>
+            </TileColumn>
           </TileRow>
         </TileGrid>
       </View>
