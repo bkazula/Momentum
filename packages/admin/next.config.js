@@ -20,7 +20,7 @@ const options = {
         localesToKeep: ['en', 'pl'],
       }),
       new MomentTimezoneDataPlugin({
-        startYear: 2021,
+        startYear: 2022,
         matchCountries: ['PL'],
       }),
       new DefinePlugin({
