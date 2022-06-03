@@ -8,7 +8,10 @@ import { FullLoader as Loader } from 'components/Loader'
 import SpeakerCard from './components/SpeakerCard'
 
 const Speakers: FC = () => {
-  const { data, loading, error } = useGetSpeakersQuery({ pollInterval: 10000 })
+  const { data, loading, error } = useGetSpeakersQuery({
+    pollInterval: 10000,
+    fetchPolicy: 'cache-and-network',
+  })
   const theme = useTheme()
 
   if (loading) return <Loader />

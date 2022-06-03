@@ -17,7 +17,10 @@ export const screens = {
 const Tab = createMaterialTopTabNavigator()
 
 const DaysTabs: FC = () => {
-  const { loading, error, data } = useGetScheduleQuery({ pollInterval: 10000 })
+  const { loading, error, data } = useGetScheduleQuery({
+    pollInterval: 10000,
+    fetchPolicy: 'cache-and-network',
+  })
   const { session } = data || {}
   const days = useMemo(() => session && getDays(session), [session])
   const tabs = useMemo(
