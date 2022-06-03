@@ -58,12 +58,12 @@ type InfoStackParamList = {
 
 const Stack = createStackNavigator<InfoStackParamList>()
 
-const BackButton = () => {
+const InfoBackButton = () => {
   const linkTo = useLinkTo()
   return <HeaderBackButton canGoBack accessibilityLabel="Powrót" onPress={() => linkTo('/info')} />
 }
 
-const SpeakerBackButton = () => {
+const BackButton = () => {
   const navigation = useNavigation()
   return navigation.canGoBack() ? (
     <HeaderBackButton canGoBack accessibilityLabel="Powrót" onPress={() => navigation.goBack()} />
@@ -165,12 +165,12 @@ const Informations: FC = () => (
     <Stack.Screen
       name="Speakers"
       component={Speakers}
-      options={{ title: 'Mówcy', headerLeft: BackButton }}
+      options={{ title: 'Mówcy', headerLeft: InfoBackButton }}
     />
     <Stack.Screen
       name="Songs"
       component={Songs}
-      options={{ title: 'Koncert na plaży', headerLeft: BackButton }}
+      options={{ title: 'Koncert na plaży', headerLeft: InfoBackButton }}
     />
     <Stack.Screen
       name="Song"
@@ -185,13 +185,13 @@ const Informations: FC = () => (
       component={Speaker}
       options={({ route }) => ({
         title: route?.params?.name,
-        headerLeft: SpeakerBackButton,
+        headerLeft: BackButton,
       })}
     />
     <Stack.Screen
       name="Rules"
       component={Rules}
-      options={{ title: 'Regulamin', headerLeft: BackButton }}
+      options={{ title: 'Regulamin', headerLeft: InfoBackButton }}
     />
   </Stack.Navigator>
 )
