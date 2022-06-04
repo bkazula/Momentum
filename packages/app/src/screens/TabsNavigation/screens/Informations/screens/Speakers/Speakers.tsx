@@ -1,17 +1,21 @@
-import React, { FC } from 'react'
-import { FlatList } from 'react-native'
-import { useTheme } from '@emotion/react'
-
 import { useGetSpeakersQuery } from '@-local/db/lib/api'
-import ErrorBoundary from 'containers/error/Boundary'
+import { useTheme } from '@emotion/react'
 import { FullLoader as Loader } from 'components/Loader'
+import ErrorBoundary from 'containers/error/Boundary'
+import usePolling from 'hooks/usePolling'
+import { NetworkInformationContext } from 'providers/NetworkInformation'
+import React, { FC, useContext } from 'react'
+import { FlatList } from 'react-native'
 import SpeakerCard from './components/SpeakerCard'
 
+
 const Speakers: FC = () => {
-  const { data, loading, error } = useGetSpeakersQuery({
-    pollInterval: 10000,
-    fetchPolicy: 'cache-and-network',
+  const { isConnected } = useContext(NetworkInformationContext)
+  const { data, loading, error, startPolling, stopPolling } = useGetSpeakersQuery({
+    fetchPolicy: isConnected ? 'cache-and-network' : 'cache-only',
   })
+
+  usePolling(startPolling, stopPolling, 10000)
   const theme = useTheme()
 
   if (loading) return <Loader />

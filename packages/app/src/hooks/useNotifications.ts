@@ -1,18 +1,21 @@
-import { Dispatch, SetStateAction, useEffect } from 'react'
+import { Dispatch, SetStateAction, useContext, useEffect } from 'react'
 import { isBefore, parseISO } from 'date-fns'
 import { useGetNotificationsQuery } from '@-local/db/lib/api'
 import { readNotificationsVar } from 'utils/cache'
 import useAsyncJsonStorage from './useAsyncJsonStorage'
+import { NetworkInformationContext } from 'providers/NetworkInformation'
+import usePolling from './usePolling'
 
 const useNotifications = (): ReturnType<typeof useGetNotificationsQuery> & {
   unreadCount: number
   readNotifications?: string[]
   setReadNotifications: Dispatch<SetStateAction<string[] | undefined>>
 } => {
-  const result = useGetNotificationsQuery({
-    pollInterval: 5000,
-    fetchPolicy: 'cache-and-network',
+  const { isConnected } = useContext(NetworkInformationContext)
+  const { startPolling, stopPolling, ...result } = useGetNotificationsQuery({
+    fetchPolicy: isConnected ? 'cache-and-network' : 'cache-only',
   })
+  usePolling(startPolling, stopPolling, 5000)
   const [readNotifications, setReadNotifications, isLoaded] = useAsyncJsonStorage<string[]>(
     'READ_NOTIFICATIONS',
     [],
