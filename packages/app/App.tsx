@@ -6,15 +6,18 @@ import ApolloProvider from 'providers/Apollo'
 import CacheProvider from 'providers/Cache'
 import Navigation from 'screens'
 import StatusBar from 'components/StatusBar'
+import NetworkInformation from 'providers/NetworkInformation'
 
 const App: FC = () => (
   <ThemeProvider>
     <ApolloProvider>
       <SafeAreaProvider>
         <SafeAreaView style={{ flex: 1 }}>
-          <CacheProvider>
-            <Navigation />
-          </CacheProvider>
+          <NetworkInformation>
+            <CacheProvider>
+              <Navigation />
+            </CacheProvider>
+          </NetworkInformation>
         </SafeAreaView>
         <StatusBar />
       </SafeAreaProvider>
