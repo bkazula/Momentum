@@ -19,7 +19,7 @@ const VisibleLink = styled(Link)`
 
 const rules = `
 1. Każdy uczestnik KONFERENCJI MOMENTUM 2022 zobowiązany jest nosić opaskę, otrzymaną podczas rejestracji i stanowiącą jego identyfikator podczas imprezy. 
-2. Każdy uczestnik KONFERENCJI MOMENTUM 2022 zobowiązany jest uczestniczyć w programie KM21.
+2. Każdy uczestnik KONFERENCJI MOMENTUM 2022 zobowiązany jest uczestniczyć w programie KM22.
 3. W trakcie wykładów oraz społeczności obowiązuje zakaz przebywania na terenie szkoły.
 4. W trakcie trwania całego wydarzenia obowiązuje całkowity zakaż zażywania jakichkolwiek środków odurzających, spożywania alkoholu oraz palenia tytoniu.
 5. Za przedmioty, wyposażenie i odzież pozostawione na terenie Hali Milenium, szkół, internatu, kąpieliska i plaży organizator nie ponosi odpowiedzialności.
