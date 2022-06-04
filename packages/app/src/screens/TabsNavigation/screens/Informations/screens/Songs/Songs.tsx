@@ -3,15 +3,19 @@ import { useNavigation } from '@react-navigation/native'
 import Loader from 'components/Loader'
 import TextPage from 'components/TextPage'
 import { Maybe } from 'graphql/jsutils/Maybe'
-import React, { FC } from 'react'
+import usePolling from 'hooks/usePolling'
+import { NetworkInformationContext } from 'providers/NetworkInformation'
+import React, { FC, useContext } from 'react'
 import { FlatList } from 'react-native'
 import ListItem from './components/ListItem'
 
 const Songs: FC = () => {
-  const { data, loading, error } = useGetSongsQuery({
-    pollInterval: 10000,
-    fetchPolicy: 'cache-and-network',
+  const { isConnected } = useContext(NetworkInformationContext)
+  const { data, loading, error, startPolling, stopPolling } = useGetSongsQuery({
+    fetchPolicy: isConnected ? 'cache-and-network' : 'cache-only',
   })
+
+  usePolling(startPolling, stopPolling, 10000)
   const navigation = useNavigation()
 
   const onPress = (original_title: Maybe<string>) =>

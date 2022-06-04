@@ -1,10 +1,12 @@
-import React, { FC } from 'react'
-import styled from '@emotion/native'
-import { format, parseISO } from 'date-fns'
 import { useGetSpeakerSessionsQuery } from '@-local/db/lib/api'
-import Text from 'components/Text'
+import styled from '@emotion/native'
 import Markdown from 'components/Markdown'
+import Text from 'components/Text'
+import { format, parseISO } from 'date-fns'
 import { pl } from 'date-fns/locale'
+import usePolling from 'hooks/usePolling'
+import { NetworkInformationContext } from 'providers/NetworkInformation'
+import React, { FC, useContext } from 'react'
 
 type SpeakerSessionsProps = {
   id: string
@@ -14,11 +16,13 @@ const formatDate = (date?: string) =>
   date ? format(parseISO(date), 'EEEE, HH:mm', { locale: pl }) : ''
 
 const SpeakerSessions: FC<SpeakerSessionsProps> = ({ id }) => {
-  const { data } = useGetSpeakerSessionsQuery({
+
+  const { isConnected } = useContext(NetworkInformationContext)
+  const { data, startPolling, stopPolling } = useGetSpeakerSessionsQuery({
     variables: { speaker_id: id },
-    pollInterval: 10000,
-    fetchPolicy: 'cache-and-network',
+    fetchPolicy: isConnected ? 'cache-and-network' : 'cache-only',
   })
+  usePolling(startPolling, stopPolling, 10000)
   const hasItems = data && (data?.session.length > 0 || data?.topic.length > 0)
 
   return hasItems ? (

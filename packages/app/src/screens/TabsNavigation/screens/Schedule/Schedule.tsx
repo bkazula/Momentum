@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react'
+import React, { FC, useContext, useMemo } from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { isSameDay } from 'date-fns'
 
@@ -9,6 +9,8 @@ import getDays from './utils/getDays'
 import Session from './components/Session'
 import ErrorBoundary from 'containers/error/Boundary'
 import { FullLoader as Loader } from 'components/Loader'
+import { NetworkInformationContext } from 'providers/NetworkInformation'
+import usePolling from 'hooks/usePolling'
 
 export const screens = {
   Day: ':id',
@@ -17,10 +19,12 @@ export const screens = {
 const Tab = createMaterialTopTabNavigator()
 
 const DaysTabs: FC = () => {
-  const { loading, error, data } = useGetScheduleQuery({
-    pollInterval: 10000,
-    fetchPolicy: 'cache-and-network',
+  const { isConnected } = useContext(NetworkInformationContext)
+  const { loading, error, data, startPolling, stopPolling } = useGetScheduleQuery({
+    fetchPolicy: isConnected ? 'cache-and-network' : 'cache-only',
   })
+
+  usePolling(startPolling, stopPolling, 10000)
   const { session } = data || {}
   const days = useMemo(() => session && getDays(session), [session])
   const tabs = useMemo(
