@@ -21,7 +21,7 @@ const SessionCreate = (props) => (
       </ReferenceInput>
       <LocationInput />
       <TextInput source="description" multiline />
-      <BooleanInput source="is_main_event" label="Główny event" />
+      <BooleanInput source="is_main_event" label="Główny event" defaultValue={false} />
     </SimpleForm>
   </Create>
 )
