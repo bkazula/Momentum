@@ -25,6 +25,9 @@ const TopicEdit = (
       <ReferenceInput label="mówca" source="speaker_id" reference="speaker" resettable>
         <SelectInput optionText="name" />
       </ReferenceInput>
+      <ReferenceInput label="drugi mówca" source="second_speaker_id" reference="speaker" resettable>
+        <SelectInput optionText="name" />
+      </ReferenceInput>
     </SimpleForm>
   </Edit>
 )
