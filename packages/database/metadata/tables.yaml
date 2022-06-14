@@ -2,503 +2,517 @@
     schema: public
     name: lyric
   object_relationships:
-  - name: song
-    using:
-      foreign_key_constraint_on: song_id
+    - name: song
+      using:
+        foreign_key_constraint_on: song_id
   insert_permissions:
-  - role: manager
-    permission:
-      check: {}
-      columns:
-      - content
-      - header
-      - id
-      - order
-      - song_id
-      backend_only: false
+    - role: manager
+      permission:
+        check: {}
+        columns:
+          - content
+          - header
+          - id
+          - order
+          - song_id
+        backend_only: false
   select_permissions:
-  - role: anonymous
-    permission:
-      columns:
-      - content
-      - created_at
-      - header
-      - id
-      - order
-      - song_id
-      - updated_at
-      filter: {}
-  - role: manager
-    permission:
-      columns:
-      - content
-      - created_at
-      - header
-      - id
-      - order
-      - song_id
-      - updated_at
-      filter: {}
-      allow_aggregations: true
-  - role: user
-    permission:
-      columns:
-      - content
-      - created_at
-      - header
-      - id
-      - order
-      - song_id
-      - updated_at
-      filter: {}
+    - role: anonymous
+      permission:
+        columns:
+          - content
+          - created_at
+          - header
+          - id
+          - order
+          - song_id
+          - updated_at
+        filter: {}
+    - role: manager
+      permission:
+        columns:
+          - content
+          - created_at
+          - header
+          - id
+          - order
+          - song_id
+          - updated_at
+        filter: {}
+        allow_aggregations: true
+    - role: user
+      permission:
+        columns:
+          - content
+          - created_at
+          - header
+          - id
+          - order
+          - song_id
+          - updated_at
+        filter: {}
   update_permissions:
-  - role: manager
-    permission:
-      columns:
-      - content
-      - header
-      - id
-      - order
-      - song_id
-      filter: {}
-      check: {}
+    - role: manager
+      permission:
+        columns:
+          - content
+          - header
+          - id
+          - order
+          - song_id
+        filter: {}
+        check: {}
   delete_permissions:
-  - role: manager
-    permission:
-      filter: {}
+    - role: manager
+      permission:
+        filter: {}
 - table:
     schema: public
     name: notification
   insert_permissions:
-  - role: manager
-    permission:
-      check: {}
-      columns:
-      - content
-      - id
-      - published_at
-      - title
-      backend_only: false
+    - role: manager
+      permission:
+        check: {}
+        columns:
+          - content
+          - id
+          - published_at
+          - title
+        backend_only: false
   select_permissions:
-  - role: anonymous
-    permission:
-      columns:
-      - content
-      - id
-      - published_at
-      - title
-      filter: {}
-  - role: manager
-    permission:
-      columns:
-      - content
-      - created_at
-      - id
-      - published_at
-      - title
-      - updated_at
-      filter: {}
-      allow_aggregations: true
-  - role: user
-    permission:
-      columns:
-      - content
-      - id
-      - published_at
-      - title
-      filter: {}
+    - role: anonymous
+      permission:
+        columns:
+          - content
+          - id
+          - published_at
+          - title
+        filter: {}
+    - role: manager
+      permission:
+        columns:
+          - content
+          - created_at
+          - id
+          - published_at
+          - title
+          - updated_at
+        filter: {}
+        allow_aggregations: true
+    - role: user
+      permission:
+        columns:
+          - content
+          - id
+          - published_at
+          - title
+        filter: {}
   update_permissions:
-  - role: manager
-    permission:
-      columns:
-      - content
-      - id
-      - published_at
-      - title
-      filter: {}
-      check: null
+    - role: manager
+      permission:
+        columns:
+          - content
+          - id
+          - published_at
+          - title
+        filter: {}
+        check: null
   delete_permissions:
-  - role: manager
-    permission:
-      filter: {}
+    - role: manager
+      permission:
+        filter: {}
 - table:
     schema: public
     name: page
   insert_permissions:
-  - role: manager
-    permission:
-      check: {}
-      columns:
-      - content
-      - meta
-      - title
-      backend_only: false
+    - role: manager
+      permission:
+        check: {}
+        columns:
+          - content
+          - meta
+          - title
+        backend_only: false
   select_permissions:
-  - role: anonymous
-    permission:
-      columns:
-      - content
-      - meta
-      - title
-      filter: {}
-  - role: manager
-    permission:
-      columns:
-      - meta
-      - content
-      - title
-      - created_at
-      - updated_at
-      filter: {}
-      allow_aggregations: true
-  - role: user
-    permission:
-      columns:
-      - content
-      - meta
-      - title
-      filter: {}
+    - role: anonymous
+      permission:
+        columns:
+          - content
+          - meta
+          - title
+        filter: {}
+    - role: manager
+      permission:
+        columns:
+          - meta
+          - content
+          - title
+          - created_at
+          - updated_at
+        filter: {}
+        allow_aggregations: true
+    - role: user
+      permission:
+        columns:
+          - content
+          - meta
+          - title
+        filter: {}
   update_permissions:
-  - role: manager
-    permission:
-      columns:
-      - content
-      - meta
-      - title
-      filter: {}
-      check: null
+    - role: manager
+      permission:
+        columns:
+          - content
+          - meta
+          - title
+        filter: {}
+        check: null
   delete_permissions:
-  - role: manager
-    permission:
-      filter: {}
+    - role: manager
+      permission:
+        filter: {}
 - table:
     schema: public
     name: session
   object_relationships:
-  - name: speaker
-    using:
-      foreign_key_constraint_on: speaker_id
+    - name: secondSpeaker
+      using:
+        manual_configuration:
+          remote_table:
+            schema: public
+            name: speaker
+          insertion_order: null
+          column_mapping:
+            second_speaker_id: id
+    - name: speaker
+      using:
+        foreign_key_constraint_on: speaker_id
   array_relationships:
-  - name: topics
-    using:
-      foreign_key_constraint_on:
-        column: session_id
-        table:
-          schema: public
-          name: topic
+    - name: topics
+      using:
+        foreign_key_constraint_on:
+          column: session_id
+          table:
+            schema: public
+            name: topic
   insert_permissions:
-  - role: manager
-    permission:
-      check: {}
-      columns:
-      - begins_at
-      - description
-      - ends_at
-      - id
-      - is_main_event
-      - location
-      - name
-      - speaker_id
-      backend_only: false
+    - role: manager
+      permission:
+        check: {}
+        columns:
+          - begins_at
+          - description
+          - ends_at
+          - id
+          - is_main_event
+          - location
+          - name
+          - second_speaker_id
+          - speaker_id
+        backend_only: false
   select_permissions:
-  - role: anonymous
-    permission:
-      columns:
-      - begins_at
-      - description
-      - ends_at
-      - id
-      - is_main_event
-      - location
-      - name
-      - speaker_id
-      filter: {}
-  - role: manager
-    permission:
-      columns:
-      - begins_at
-      - created_at
-      - description
-      - ends_at
-      - id
-      - is_main_event
-      - location
-      - name
-      - speaker_id
-      - updated_at
-      filter: {}
-      allow_aggregations: true
-  - role: user
-    permission:
-      columns:
-      - begins_at
-      - description
-      - ends_at
-      - id
-      - is_main_event
-      - location
-      - name
-      - speaker_id
-      filter: {}
+    - role: anonymous
+      permission:
+        columns:
+          - begins_at
+          - description
+          - ends_at
+          - id
+          - is_main_event
+          - location
+          - name
+          - second_speaker_id
+          - speaker_id
+        filter: {}
+    - role: manager
+      permission:
+        columns:
+          - begins_at
+          - created_at
+          - description
+          - ends_at
+          - id
+          - is_main_event
+          - location
+          - name
+          - second_speaker_id
+          - speaker_id
+          - updated_at
+        filter: {}
+        allow_aggregations: true
+    - role: user
+      permission:
+        columns:
+          - begins_at
+          - description
+          - ends_at
+          - id
+          - is_main_event
+          - location
+          - name
+          - second_speaker_id
+          - speaker_id
+        filter: {}
   update_permissions:
-  - role: manager
-    permission:
-      columns:
-      - begins_at
-      - description
-      - ends_at
-      - id
-      - is_main_event
-      - location
-      - name
-      - speaker_id
-      filter: {}
-      check: null
+    - role: manager
+      permission:
+        columns:
+          - begins_at
+          - description
+          - ends_at
+          - id
+          - is_main_event
+          - location
+          - name
+          - second_speaker_id
+          - speaker_id
+        filter: {}
+        check: null
   delete_permissions:
-  - role: manager
-    permission:
-      filter: {}
+    - role: manager
+      permission:
+        filter: {}
 - table:
     schema: public
     name: song
   array_relationships:
-  - name: lyrics
-    using:
-      foreign_key_constraint_on:
-        column: song_id
-        table:
-          schema: public
-          name: lyric
+    - name: lyrics
+      using:
+        foreign_key_constraint_on:
+          column: song_id
+          table:
+            schema: public
+            name: lyric
   insert_permissions:
-  - role: manager
-    permission:
-      check: {}
-      columns:
-      - author
-      - id
-      - order
-      - original_title
-      - title
-      backend_only: false
+    - role: manager
+      permission:
+        check: {}
+        columns:
+          - author
+          - id
+          - order
+          - original_title
+          - title
+        backend_only: false
   select_permissions:
-  - role: anonymous
-    permission:
-      columns:
-      - author
-      - original_title
-      - title
-      - order
-      - created_at
-      - updated_at
-      - id
-      filter: {}
-  - role: manager
-    permission:
-      columns:
-      - author
-      - original_title
-      - title
-      - order
-      - created_at
-      - updated_at
-      - id
-      filter: {}
-      allow_aggregations: true
-  - role: user
-    permission:
-      columns:
-      - author
-      - original_title
-      - title
-      - order
-      - created_at
-      - updated_at
-      - id
-      filter: {}
+    - role: anonymous
+      permission:
+        columns:
+          - author
+          - original_title
+          - title
+          - order
+          - created_at
+          - updated_at
+          - id
+        filter: {}
+    - role: manager
+      permission:
+        columns:
+          - author
+          - original_title
+          - title
+          - order
+          - created_at
+          - updated_at
+          - id
+        filter: {}
+        allow_aggregations: true
+    - role: user
+      permission:
+        columns:
+          - author
+          - original_title
+          - title
+          - order
+          - created_at
+          - updated_at
+          - id
+        filter: {}
   update_permissions:
-  - role: manager
-    permission:
-      columns:
-      - author
-      - id
-      - order
-      - original_title
-      - title
-      filter: {}
-      check: {}
+    - role: manager
+      permission:
+        columns:
+          - author
+          - id
+          - order
+          - original_title
+          - title
+        filter: {}
+        check: {}
   delete_permissions:
-  - role: manager
-    permission:
-      filter: {}
+    - role: manager
+      permission:
+        filter: {}
 - table:
     schema: public
     name: speaker
   array_relationships:
-  - name: sessions
-    using:
-      foreign_key_constraint_on:
-        column: speaker_id
-        table:
-          schema: public
-          name: session
-  - name: topics
-    using:
-      foreign_key_constraint_on:
-        column: speaker_id
-        table:
-          schema: public
-          name: topic
+    - name: sessions
+      using:
+        foreign_key_constraint_on:
+          column: speaker_id
+          table:
+            schema: public
+            name: session
+    - name: topics
+      using:
+        foreign_key_constraint_on:
+          column: speaker_id
+          table:
+            schema: public
+            name: topic
   insert_permissions:
-  - role: manager
-    permission:
-      check: {}
-      columns:
-      - description
-      - id
-      - image
-      - name
-      - priority
-      backend_only: false
+    - role: manager
+      permission:
+        check: {}
+        columns:
+          - description
+          - id
+          - image
+          - name
+          - priority
+        backend_only: false
   select_permissions:
-  - role: anonymous
-    permission:
-      columns:
-      - description
-      - id
-      - image
-      - name
-      - priority
-      filter: {}
-  - role: manager
-    permission:
-      columns:
-      - created_at
-      - description
-      - id
-      - image
-      - name
-      - priority
-      - updated_at
-      filter: {}
-      allow_aggregations: true
-  - role: user
-    permission:
-      columns:
-      - description
-      - id
-      - image
-      - name
-      - priority
-      filter: {}
+    - role: anonymous
+      permission:
+        columns:
+          - description
+          - id
+          - image
+          - name
+          - priority
+        filter: {}
+    - role: manager
+      permission:
+        columns:
+          - created_at
+          - description
+          - id
+          - image
+          - name
+          - priority
+          - updated_at
+        filter: {}
+        allow_aggregations: true
+    - role: user
+      permission:
+        columns:
+          - description
+          - id
+          - image
+          - name
+          - priority
+        filter: {}
   update_permissions:
-  - role: manager
-    permission:
-      columns:
-      - description
-      - id
-      - image
-      - name
-      - priority
-      filter: {}
-      check: null
+    - role: manager
+      permission:
+        columns:
+          - description
+          - id
+          - image
+          - name
+          - priority
+        filter: {}
+        check: null
   delete_permissions:
-  - role: manager
-    permission:
-      filter: {}
+    - role: manager
+      permission:
+        filter: {}
 - table:
     schema: public
     name: topic
   object_relationships:
-  - name: session
-    using:
-      foreign_key_constraint_on: session_id
-  - name: speaker
-    using:
-      foreign_key_constraint_on: speaker_id
+    - name: session
+      using:
+        foreign_key_constraint_on: session_id
+    - name: speaker
+      using:
+        foreign_key_constraint_on: speaker_id
   insert_permissions:
-  - role: manager
-    permission:
-      check: {}
-      columns:
-      - description
-      - id
-      - location
-      - session_id
-      - speaker_id
-      - subject
-      backend_only: false
+    - role: manager
+      permission:
+        check: {}
+        columns:
+          - description
+          - id
+          - location
+          - session_id
+          - speaker_id
+          - subject
+        backend_only: false
   select_permissions:
-  - role: anonymous
-    permission:
-      columns:
-      - description
-      - id
-      - location
-      - session_id
-      - speaker_id
-      - subject
-      filter: {}
-  - role: manager
-    permission:
-      columns:
-      - created_at
-      - description
-      - id
-      - location
-      - session_id
-      - speaker_id
-      - subject
-      - updated_at
-      filter: {}
-      allow_aggregations: true
-  - role: user
-    permission:
-      columns:
-      - description
-      - id
-      - location
-      - session_id
-      - speaker_id
-      - subject
-      filter: {}
+    - role: anonymous
+      permission:
+        columns:
+          - description
+          - id
+          - location
+          - session_id
+          - speaker_id
+          - subject
+        filter: {}
+    - role: manager
+      permission:
+        columns:
+          - created_at
+          - description
+          - id
+          - location
+          - session_id
+          - speaker_id
+          - subject
+          - updated_at
+        filter: {}
+        allow_aggregations: true
+    - role: user
+      permission:
+        columns:
+          - description
+          - id
+          - location
+          - session_id
+          - speaker_id
+          - subject
+        filter: {}
   update_permissions:
-  - role: manager
-    permission:
-      columns:
-      - description
-      - id
-      - location
-      - session_id
-      - speaker_id
-      - subject
-      filter: {}
-      check: null
+    - role: manager
+      permission:
+        columns:
+          - description
+          - id
+          - location
+          - session_id
+          - speaker_id
+          - subject
+        filter: {}
+        check: null
   delete_permissions:
-  - role: manager
-    permission:
-      filter: {}
+    - role: manager
+      permission:
+        filter: {}
 - table:
     schema: public
     name: user
   select_permissions:
-  - role: manager
-    permission:
-      columns:
-      - password
-      - username
-      - created_at
-      - updated_at
-      - id
-      filter: {}
-      allow_aggregations: true
-  - role: user
-    permission:
-      columns:
-      - created_at
-      - id
-      - password
-      - updated_at
-      - username
-      filter:
-        id:
-          _eq: X-Hasura-User-Id
+    - role: manager
+      permission:
+        columns:
+          - password
+          - username
+          - created_at
+          - updated_at
+          - id
+        filter: {}
+        allow_aggregations: true
+    - role: user
+      permission:
+        columns:
+          - created_at
+          - id
+          - password
+          - updated_at
+          - username
+        filter:
+          id:
+            _eq: X-Hasura-User-Id

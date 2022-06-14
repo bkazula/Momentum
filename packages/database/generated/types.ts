@@ -111,7 +111,7 @@ export type Lyric = {
   created_at: Scalars['timestamptz'];
   header?: Maybe<Scalars['String']>;
   id: Scalars['uuid'];
-  order?: Maybe<Scalars['Int']>;
+  order: Scalars['Int'];
   /** An object relationship */
   song: Song;
   song_id: Scalars['uuid'];
@@ -199,9 +199,7 @@ export type Lyric_Bool_Exp = {
 /** unique or primary key constraints on table "lyric" */
 export enum Lyric_Constraint {
   /** unique or primary key constraint */
-  LyricPkey = 'lyric_pkey',
-  /** unique or primary key constraint */
-  LyricSongIdOrderKey = 'lyric_song_id_order_key'
+  LyricPkey = 'lyric_pkey'
 }
 
 /** input type for incrementing numeric columns in table "lyric" */
@@ -1467,6 +1465,9 @@ export type Session = {
   location?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   /** An object relationship */
+  secondSpeaker?: Maybe<Speaker>;
+  second_speaker_id?: Maybe<Scalars['uuid']>;
+  /** An object relationship */
   speaker?: Maybe<Speaker>;
   speaker_id?: Maybe<Scalars['uuid']>;
   /** An array relationship */
@@ -1545,6 +1546,8 @@ export type Session_Bool_Exp = {
   is_main_event?: Maybe<Boolean_Comparison_Exp>;
   location?: Maybe<String_Comparison_Exp>;
   name?: Maybe<String_Comparison_Exp>;
+  secondSpeaker?: Maybe<Speaker_Bool_Exp>;
+  second_speaker_id?: Maybe<Uuid_Comparison_Exp>;
   speaker?: Maybe<Speaker_Bool_Exp>;
   speaker_id?: Maybe<Uuid_Comparison_Exp>;
   topics?: Maybe<Topic_Bool_Exp>;
@@ -1567,6 +1570,8 @@ export type Session_Insert_Input = {
   is_main_event?: Maybe<Scalars['Boolean']>;
   location?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  secondSpeaker?: Maybe<Speaker_Obj_Rel_Insert_Input>;
+  second_speaker_id?: Maybe<Scalars['uuid']>;
   speaker?: Maybe<Speaker_Obj_Rel_Insert_Input>;
   speaker_id?: Maybe<Scalars['uuid']>;
   topics?: Maybe<Topic_Arr_Rel_Insert_Input>;
@@ -1583,6 +1588,7 @@ export type Session_Max_Fields = {
   id?: Maybe<Scalars['uuid']>;
   location?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  second_speaker_id?: Maybe<Scalars['uuid']>;
   speaker_id?: Maybe<Scalars['uuid']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
 };
@@ -1596,6 +1602,7 @@ export type Session_Max_Order_By = {
   id?: Maybe<Order_By>;
   location?: Maybe<Order_By>;
   name?: Maybe<Order_By>;
+  second_speaker_id?: Maybe<Order_By>;
   speaker_id?: Maybe<Order_By>;
   updated_at?: Maybe<Order_By>;
 };
@@ -1610,6 +1617,7 @@ export type Session_Min_Fields = {
   id?: Maybe<Scalars['uuid']>;
   location?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  second_speaker_id?: Maybe<Scalars['uuid']>;
   speaker_id?: Maybe<Scalars['uuid']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
 };
@@ -1623,6 +1631,7 @@ export type Session_Min_Order_By = {
   id?: Maybe<Order_By>;
   location?: Maybe<Order_By>;
   name?: Maybe<Order_By>;
+  second_speaker_id?: Maybe<Order_By>;
   speaker_id?: Maybe<Order_By>;
   updated_at?: Maybe<Order_By>;
 };
@@ -1660,6 +1669,8 @@ export type Session_Order_By = {
   is_main_event?: Maybe<Order_By>;
   location?: Maybe<Order_By>;
   name?: Maybe<Order_By>;
+  secondSpeaker?: Maybe<Speaker_Order_By>;
+  second_speaker_id?: Maybe<Order_By>;
   speaker?: Maybe<Speaker_Order_By>;
   speaker_id?: Maybe<Order_By>;
   topics_aggregate?: Maybe<Topic_Aggregate_Order_By>;
@@ -1690,6 +1701,8 @@ export enum Session_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
+  SecondSpeakerId = 'second_speaker_id',
+  /** column name */
   SpeakerId = 'speaker_id',
   /** column name */
   UpdatedAt = 'updated_at'
@@ -1705,6 +1718,7 @@ export type Session_Set_Input = {
   is_main_event?: Maybe<Scalars['Boolean']>;
   location?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  second_speaker_id?: Maybe<Scalars['uuid']>;
   speaker_id?: Maybe<Scalars['uuid']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
 };
@@ -1727,6 +1741,8 @@ export enum Session_Update_Column {
   Location = 'location',
   /** column name */
   Name = 'name',
+  /** column name */
+  SecondSpeakerId = 'second_speaker_id',
   /** column name */
   SpeakerId = 'speaker_id',
   /** column name */
@@ -1822,8 +1838,6 @@ export type Song_Bool_Exp = {
 
 /** unique or primary key constraints on table "song" */
 export enum Song_Constraint {
-  /** unique or primary key constraint */
-  SongOrderKey = 'song_order_key',
   /** unique or primary key constraint */
   SongPkey = 'song_pkey'
 }
