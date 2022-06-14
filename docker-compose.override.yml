@@ -40,7 +40,7 @@ services:
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: http-log, webhook-log
 
   schema:
-    image: schemaspy/schemaspy
+    image: schemaspy/schemaspy:snapshot
     volumes:
       - ./data/schema:/output
       - ./:/config
