@@ -520,12 +520,14 @@ export type subscription_rootFieldPolicy = {
 	user_aggregate?: FieldPolicy<any> | FieldReadFunction<any>,
 	user_by_pk?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type topicKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'session' | 'session_id' | 'speaker' | 'speaker_id' | 'subject' | 'updated_at' | topicKeySpecifier)[];
+export type topicKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'secondSpeaker' | 'second_speaker_id' | 'session' | 'session_id' | 'speaker' | 'speaker_id' | 'subject' | 'updated_at' | topicKeySpecifier)[];
 export type topicFieldPolicy = {
 	created_at?: FieldPolicy<any> | FieldReadFunction<any>,
 	description?: FieldPolicy<any> | FieldReadFunction<any>,
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	location?: FieldPolicy<any> | FieldReadFunction<any>,
+	secondSpeaker?: FieldPolicy<any> | FieldReadFunction<any>,
+	second_speaker_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	session?: FieldPolicy<any> | FieldReadFunction<any>,
 	session_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	speaker?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -544,23 +546,25 @@ export type topic_aggregate_fieldsFieldPolicy = {
 	max?: FieldPolicy<any> | FieldReadFunction<any>,
 	min?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type topic_max_fieldsKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'session_id' | 'speaker_id' | 'subject' | 'updated_at' | topic_max_fieldsKeySpecifier)[];
+export type topic_max_fieldsKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'second_speaker_id' | 'session_id' | 'speaker_id' | 'subject' | 'updated_at' | topic_max_fieldsKeySpecifier)[];
 export type topic_max_fieldsFieldPolicy = {
 	created_at?: FieldPolicy<any> | FieldReadFunction<any>,
 	description?: FieldPolicy<any> | FieldReadFunction<any>,
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	location?: FieldPolicy<any> | FieldReadFunction<any>,
+	second_speaker_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	session_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	speaker_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	subject?: FieldPolicy<any> | FieldReadFunction<any>,
 	updated_at?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type topic_min_fieldsKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'session_id' | 'speaker_id' | 'subject' | 'updated_at' | topic_min_fieldsKeySpecifier)[];
+export type topic_min_fieldsKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'second_speaker_id' | 'session_id' | 'speaker_id' | 'subject' | 'updated_at' | topic_min_fieldsKeySpecifier)[];
 export type topic_min_fieldsFieldPolicy = {
 	created_at?: FieldPolicy<any> | FieldReadFunction<any>,
 	description?: FieldPolicy<any> | FieldReadFunction<any>,
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	location?: FieldPolicy<any> | FieldReadFunction<any>,
+	second_speaker_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	session_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	speaker_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	subject?: FieldPolicy<any> | FieldReadFunction<any>,
