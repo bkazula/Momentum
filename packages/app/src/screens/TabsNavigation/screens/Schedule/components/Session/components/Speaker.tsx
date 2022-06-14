@@ -40,6 +40,7 @@ const SessionSpeaker = styled.View`
   padding: ${({ theme }) => `0 ${theme.spacing.m}px ${theme.spacing.m}px`};
   flex-grow: 1;
   flex-basis: 0;
+  min-height: 51px;
 `
 
 const SpeakerSection = styled.TouchableOpacity`
