@@ -76,6 +76,9 @@ const SessionShow = (props) => (
         <ReferenceField label="mówca" source="speaker_id" reference="speaker" emptyText="&mdash;">
           <TextField source="name" />
         </ReferenceField>
+        <ReferenceField label="drugi mówca" source="second_speaker_id" reference="speaker" emptyText="&mdash;">
+          <TextField source="name" />
+        </ReferenceField>
         <FunctionField
           label="data i godzina"
           render={(record) =>
