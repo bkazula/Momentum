@@ -2501,6 +2501,9 @@ export type Topic = {
   id: Scalars['uuid'];
   location?: Maybe<Scalars['String']>;
   /** An object relationship */
+  secondSpeaker?: Maybe<Speaker>;
+  second_speaker_id?: Maybe<Scalars['uuid']>;
+  /** An object relationship */
   session: Session;
   session_id: Scalars['uuid'];
   /** An object relationship */
@@ -2553,6 +2556,8 @@ export type Topic_Bool_Exp = {
   description?: Maybe<String_Comparison_Exp>;
   id?: Maybe<Uuid_Comparison_Exp>;
   location?: Maybe<String_Comparison_Exp>;
+  secondSpeaker?: Maybe<Speaker_Bool_Exp>;
+  second_speaker_id?: Maybe<Uuid_Comparison_Exp>;
   session?: Maybe<Session_Bool_Exp>;
   session_id?: Maybe<Uuid_Comparison_Exp>;
   speaker?: Maybe<Speaker_Bool_Exp>;
@@ -2573,6 +2578,8 @@ export type Topic_Insert_Input = {
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
   location?: Maybe<Scalars['String']>;
+  secondSpeaker?: Maybe<Speaker_Obj_Rel_Insert_Input>;
+  second_speaker_id?: Maybe<Scalars['uuid']>;
   session?: Maybe<Session_Obj_Rel_Insert_Input>;
   session_id?: Maybe<Scalars['uuid']>;
   speaker?: Maybe<Speaker_Obj_Rel_Insert_Input>;
@@ -2587,6 +2594,7 @@ export type Topic_Max_Fields = {
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
   location?: Maybe<Scalars['String']>;
+  second_speaker_id?: Maybe<Scalars['uuid']>;
   session_id?: Maybe<Scalars['uuid']>;
   speaker_id?: Maybe<Scalars['uuid']>;
   subject?: Maybe<Scalars['String']>;
@@ -2599,6 +2607,7 @@ export type Topic_Max_Order_By = {
   description?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   location?: Maybe<Order_By>;
+  second_speaker_id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   speaker_id?: Maybe<Order_By>;
   subject?: Maybe<Order_By>;
@@ -2611,6 +2620,7 @@ export type Topic_Min_Fields = {
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
   location?: Maybe<Scalars['String']>;
+  second_speaker_id?: Maybe<Scalars['uuid']>;
   session_id?: Maybe<Scalars['uuid']>;
   speaker_id?: Maybe<Scalars['uuid']>;
   subject?: Maybe<Scalars['String']>;
@@ -2623,6 +2633,7 @@ export type Topic_Min_Order_By = {
   description?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   location?: Maybe<Order_By>;
+  second_speaker_id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   speaker_id?: Maybe<Order_By>;
   subject?: Maybe<Order_By>;
@@ -2650,6 +2661,8 @@ export type Topic_Order_By = {
   description?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   location?: Maybe<Order_By>;
+  secondSpeaker?: Maybe<Speaker_Order_By>;
+  second_speaker_id?: Maybe<Order_By>;
   session?: Maybe<Session_Order_By>;
   session_id?: Maybe<Order_By>;
   speaker?: Maybe<Speaker_Order_By>;
@@ -2674,6 +2687,8 @@ export enum Topic_Select_Column {
   /** column name */
   Location = 'location',
   /** column name */
+  SecondSpeakerId = 'second_speaker_id',
+  /** column name */
   SessionId = 'session_id',
   /** column name */
   SpeakerId = 'speaker_id',
@@ -2689,6 +2704,7 @@ export type Topic_Set_Input = {
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
   location?: Maybe<Scalars['String']>;
+  second_speaker_id?: Maybe<Scalars['uuid']>;
   session_id?: Maybe<Scalars['uuid']>;
   speaker_id?: Maybe<Scalars['uuid']>;
   subject?: Maybe<Scalars['String']>;
@@ -2705,6 +2721,8 @@ export enum Topic_Update_Column {
   Id = 'id',
   /** column name */
   Location = 'location',
+  /** column name */
+  SecondSpeakerId = 'second_speaker_id',
   /** column name */
   SessionId = 'session_id',
   /** column name */
@@ -2930,7 +2948,7 @@ export type SpeakerFragment = Pick<Speaker, 'id' | 'name' | 'description' | 'ima
 
 export type TopicFragment = (
   Pick<Topic, 'id' | 'subject' | 'description' | 'location'>
-  & { speaker?: Maybe<SpeakerFragment> }
+  & { speaker?: Maybe<SpeakerFragment>, secondSpeaker?: Maybe<SpeakerFragment> }
 );
 
 export const LyricsFragmentDoc = gql`
@@ -2965,6 +2983,9 @@ export const TopicFragmentDoc = gql`
   description
   location
   speaker {
+    ...speaker
+  }
+  secondSpeaker {
     ...speaker
   }
 }

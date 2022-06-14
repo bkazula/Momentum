@@ -6,4 +6,7 @@ fragment topic on topic {
   speaker {
     ...speaker
   }
+  secondSpeaker {
+    ...speaker
+  }
 }
