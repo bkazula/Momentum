@@ -36,7 +36,12 @@ const TopicList = (props) => (
       >
         <FunctionField render={formatSession} />
       </ReferenceField>
-      <TextField source="speaker" emptyText="&mdash;" />
+      <ReferenceField label="mówca" source="speaker_id" reference="speaker">
+        <TextField source="name" emptyText="&mdash;" />
+      </ReferenceField>
+      <ReferenceField label="drugi mówca" source="second_speaker_id" reference="speaker">
+        <TextField source="name" emptyText="&mdash;" />
+      </ReferenceField>
       {/* <RelativeTimeField label="zaktualizowano" source="updated_at" /> */}
       <TextField source="location" emptyText="&mdash;" />
     </Datagrid>

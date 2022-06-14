@@ -8,6 +8,7 @@ const fields = {
   begins_at: 'od',
   ends_at: 'do',
   speaker: 'mówca',
+  secondSpeaker: 'drugi mówca',
   session: 'sesja',
   description: 'opis',
   updated_at: 'zaktualizowano',
