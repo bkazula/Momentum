@@ -13,6 +13,7 @@ type SessionProps = {
   begins_at?: Maybe<Scalars['timestamptz']>
   ends_at?: Maybe<Scalars['timestamptz']>
   speaker?: Maybe<SpeakerFragment>
+  secondSpeaker?: Maybe<SpeakerFragment>
   muted?: boolean
   isMainEvent?: Maybe<Scalars['Boolean']>
 }
@@ -22,6 +23,7 @@ const TopicBlock: FC<SessionProps> = ({
   description,
   children,
   speaker,
+  secondSpeaker,
   location,
   muted,
   isMainEvent,
@@ -33,7 +35,7 @@ const TopicBlock: FC<SessionProps> = ({
       <Info>
         <Text>{title}</Text>
       </Info>
-      <ExtendedInfo {...{ description, location, speaker, children, isMainEvent }} />
+      <ExtendedInfo {...{ description, location, speaker, secondSpeaker, children, isMainEvent }} />
     </Wrapper>
   )
 }
