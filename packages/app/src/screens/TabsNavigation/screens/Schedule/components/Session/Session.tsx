@@ -14,6 +14,7 @@ const Session: FC<SessionProps> = ({
   ends_at,
   topics,
   speaker,
+  secondSpeaker,
   location,
   description,
   is_main_event,
@@ -26,6 +27,7 @@ const Session: FC<SessionProps> = ({
       muted={muted || hasTopics}
       title={name}
       speaker={speaker}
+      secondSpeaker={secondSpeaker}
       location={location}
       description={description}
       begins_at={begins_at}
