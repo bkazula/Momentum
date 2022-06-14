@@ -1,20 +1,20 @@
 type Mutation {
-  login (
+  login(
     username: String!
     password: String!
   ): UserInfo
 }
 
 type Mutation {
-  logout : UserInfo
+  logout: UserInfo
 }
 
 type Query {
-  me : UserInfo
+  me: UserInfo
 }
 
 type UserInfo {
-  id : uuid
-  username : String
+  id: uuid
+  username: String
 }
 

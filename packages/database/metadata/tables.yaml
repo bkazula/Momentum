@@ -423,6 +423,9 @@
     schema: public
     name: topic
   object_relationships:
+    - name: secondSpeaker
+      using:
+        foreign_key_constraint_on: second_speaker_id
     - name: session
       using:
         foreign_key_constraint_on: session_id
@@ -437,6 +440,7 @@
           - description
           - id
           - location
+          - second_speaker_id
           - session_id
           - speaker_id
           - subject
@@ -448,6 +452,7 @@
           - description
           - id
           - location
+          - second_speaker_id
           - session_id
           - speaker_id
           - subject
@@ -455,14 +460,15 @@
     - role: manager
       permission:
         columns:
-          - created_at
-          - description
           - id
-          - location
-          - session_id
-          - speaker_id
-          - subject
+          - created_at
           - updated_at
+          - session_id
+          - subject
+          - description
+          - location
+          - speaker_id
+          - second_speaker_id
         filter: {}
         allow_aggregations: true
     - role: user
@@ -471,6 +477,7 @@
           - description
           - id
           - location
+          - second_speaker_id
           - session_id
           - speaker_id
           - subject
@@ -482,6 +489,7 @@
           - description
           - id
           - location
+          - second_speaker_id
           - session_id
           - speaker_id
           - subject
