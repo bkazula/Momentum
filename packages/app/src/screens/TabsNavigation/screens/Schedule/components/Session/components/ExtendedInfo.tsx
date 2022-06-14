@@ -15,12 +15,14 @@ type ExtendedInfoProps = {
   description?: Maybe<Scalars['String']>
   location?: Maybe<Scalars['String']>
   speaker?: Maybe<SpeakerFragment>
+  secondSpeaker?: Maybe<SpeakerFragment>
   isMainEvent?: Maybe<Scalars['Boolean']>
 }
 
 export const ExtendedInfo: FC<ExtendedInfoProps> = ({
   description,
   speaker,
+  secondSpeaker,
   location,
   isMainEvent,
   children,
@@ -46,7 +48,10 @@ export const ExtendedInfo: FC<ExtendedInfoProps> = ({
           {location || speaker ? (
             <SpeakerAndLocation>
               {location && <Location>{location}</Location>}
-              {speaker && <Speaker {...speaker} />}
+              <SpeakerContainer>
+                {speaker && <Speaker {...speaker} />}
+                {secondSpeaker && <Speaker {...secondSpeaker} />}
+              </SpeakerContainer>
             </SpeakerAndLocation>
           ) : null}
         </ExpandableDetails>
@@ -118,6 +123,11 @@ const SpeakerAndLocation = styled.View`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+`
+
+const SpeakerContainer = styled.View`
+  flex: 1;
+  justify-content: space-around;
 `
 
 const TouchableExpandButton = styled(TouchableOpacity)`
