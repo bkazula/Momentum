@@ -3193,13 +3193,17 @@ export type GetSongsLazyQueryHookResult = ReturnType<typeof useGetSongsLazyQuery
 export type GetSongsQueryResult = Apollo.QueryResult<GetSongsQuery, GetSongsQueryVariables>;
 export const GetSpeakerSessionsDocument = gql`
     query getSpeakerSessions($speaker_id: uuid!) {
-  session(where: {speaker_id: {_eq: $speaker_id}}) {
+  session(
+    where: {_or: [{speaker_id: {_eq: $speaker_id}}, {second_speaker_id: {_eq: $speaker_id}}]}
+  ) {
     id
     name
     begins_at
     location
   }
-  topic(where: {speaker_id: {_eq: $speaker_id}}) {
+  topic(
+    where: {_or: [{speaker_id: {_eq: $speaker_id}}, {second_speaker_id: {_eq: $speaker_id}}]}
+  ) {
     id
     subject
     location
