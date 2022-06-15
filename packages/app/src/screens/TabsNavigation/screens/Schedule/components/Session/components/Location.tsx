@@ -3,7 +3,7 @@ import styled from '@emotion/native'
 
 import Text from 'components/Text'
 
-const Speaker: FC<{ children: string }> = ({ children }) => (
+const Location: FC<{ children: string }> = ({ children }) => (
   <Wrapper>
     <ContentText>{children}</ContentText>
   </Wrapper>
@@ -18,4 +18,4 @@ const ContentText = styled(Text)`
   text-align: right;
 `
 
-export default Speaker
+export default Location
