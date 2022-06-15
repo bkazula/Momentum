@@ -10,7 +10,7 @@ const Location: FC<{ children: string }> = ({ children }) => (
 )
 
 const Wrapper = styled.View`
-  padding: ${({ theme }) => `0 ${theme.spacing.m}px ${theme.spacing.m}px`};
+  padding: ${({ theme }) => `0 ${theme.spacing.m}px 20px`};
 `
 
 const ContentText = styled(Text)`

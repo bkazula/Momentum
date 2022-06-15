@@ -122,7 +122,7 @@ const DescriptionText = styled(Text)`
 const SpeakerAndLocation = styled.View`
   display: flex;
   flex-direction: row-reverse;
-  align-items: center;
+  align-items: flex-end;
 `
 
 const SpeakerContainer = styled.View`
