@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { ScrollView } from 'react-native'
 import styled from '@emotion/native'
-import { useIsFocused } from '@react-navigation/native'
+import { useIsFocused, useNavigation } from '@react-navigation/native'
 import { FullLoader as Loader } from 'components/Loader'
 import Header from 'components/Header'
 import ErrorBoundary from 'containers/error/Boundary'
@@ -10,20 +10,22 @@ import Notification from './components/Notification'
 
 const NotificationsList: FC = () => {
   const { loading, error, data, readNotifications, setReadNotifications } = useNotifications()
-  const isFocused = useIsFocused()
+  const navigation = useNavigation()
 
   useEffect(() => {
-    if (!isFocused && data?.notification && data?.notification.length) {
+    const markNotificationsAsRead = () => {
       const allRead = new Set([
         ...(readNotifications || []),
         ...data?.notification?.map(({ id }) => id),
       ])
       setReadNotifications([...allRead])
     }
+    navigation.addListener('blur', markNotificationsAsRead)
+    return () => navigation.removeListener('blur', markNotificationsAsRead) 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFocused, data, setReadNotifications])
+  }, [data])
 
-  if (loading) {
+  if (!data && loading) {
     return (
       <NotificationsPage>
         <Loader />
