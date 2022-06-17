@@ -1,5 +1,13 @@
-import { Create, ReferenceInput, required, SimpleForm, TextInput, SelectInput } from 'react-admin'
 import LocationInput from 'components/LocationInput'
+import {
+  Create,
+  NumberInput,
+  ReferenceInput,
+  required,
+  SelectInput,
+  SimpleForm,
+  TextInput,
+} from 'react-admin'
 import { formatSession } from './utils'
 
 const TopicCreate = (props) => {
@@ -27,13 +35,19 @@ const TopicCreate = (props) => {
         </ReferenceInput>
         <TextInput source="subject" multiline />
         <TextInput source="description" multiline />
+        <NumberInput source="priority" defaultValue="0" />
         <LocationInput />
         <ReferenceInput label="mówca" source="speaker_id" reference="speaker" resettable>
           <SelectInput optionText="name" />
         </ReferenceInput>
-        <ReferenceInput label="drugi mówca" source="second_speaker_id" reference="speaker" resettable>
-        <SelectInput optionText="name" />
-      </ReferenceInput>
+        <ReferenceInput
+          label="drugi mówca"
+          source="second_speaker_id"
+          reference="speaker"
+          resettable
+        >
+          <SelectInput optionText="name" />
+        </ReferenceInput>
       </SimpleForm>
     </Create>
   )

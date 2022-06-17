@@ -13,7 +13,7 @@ query getSchedule {
     secondSpeaker {
       ...speaker
     }
-    topics(order_by: { subject: asc }) {
+    topics(order_by: [{ priority: desc }, { subject: asc }]) {
       ...topic
     }
   }

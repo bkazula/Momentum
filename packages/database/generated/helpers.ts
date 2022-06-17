@@ -520,12 +520,13 @@ export type subscription_rootFieldPolicy = {
 	user_aggregate?: FieldPolicy<any> | FieldReadFunction<any>,
 	user_by_pk?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type topicKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'secondSpeaker' | 'second_speaker_id' | 'session' | 'session_id' | 'speaker' | 'speaker_id' | 'subject' | 'updated_at' | topicKeySpecifier)[];
+export type topicKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'priority' | 'secondSpeaker' | 'second_speaker_id' | 'session' | 'session_id' | 'speaker' | 'speaker_id' | 'subject' | 'updated_at' | topicKeySpecifier)[];
 export type topicFieldPolicy = {
 	created_at?: FieldPolicy<any> | FieldReadFunction<any>,
 	description?: FieldPolicy<any> | FieldReadFunction<any>,
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	location?: FieldPolicy<any> | FieldReadFunction<any>,
+	priority?: FieldPolicy<any> | FieldReadFunction<any>,
 	secondSpeaker?: FieldPolicy<any> | FieldReadFunction<any>,
 	second_speaker_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	session?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -540,30 +541,44 @@ export type topic_aggregateFieldPolicy = {
 	aggregate?: FieldPolicy<any> | FieldReadFunction<any>,
 	nodes?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type topic_aggregate_fieldsKeySpecifier = ('count' | 'max' | 'min' | topic_aggregate_fieldsKeySpecifier)[];
+export type topic_aggregate_fieldsKeySpecifier = ('avg' | 'count' | 'max' | 'min' | 'stddev' | 'stddev_pop' | 'stddev_samp' | 'sum' | 'var_pop' | 'var_samp' | 'variance' | topic_aggregate_fieldsKeySpecifier)[];
 export type topic_aggregate_fieldsFieldPolicy = {
+	avg?: FieldPolicy<any> | FieldReadFunction<any>,
 	count?: FieldPolicy<any> | FieldReadFunction<any>,
 	max?: FieldPolicy<any> | FieldReadFunction<any>,
-	min?: FieldPolicy<any> | FieldReadFunction<any>
+	min?: FieldPolicy<any> | FieldReadFunction<any>,
+	stddev?: FieldPolicy<any> | FieldReadFunction<any>,
+	stddev_pop?: FieldPolicy<any> | FieldReadFunction<any>,
+	stddev_samp?: FieldPolicy<any> | FieldReadFunction<any>,
+	sum?: FieldPolicy<any> | FieldReadFunction<any>,
+	var_pop?: FieldPolicy<any> | FieldReadFunction<any>,
+	var_samp?: FieldPolicy<any> | FieldReadFunction<any>,
+	variance?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type topic_max_fieldsKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'second_speaker_id' | 'session_id' | 'speaker_id' | 'subject' | 'updated_at' | topic_max_fieldsKeySpecifier)[];
+export type topic_avg_fieldsKeySpecifier = ('priority' | topic_avg_fieldsKeySpecifier)[];
+export type topic_avg_fieldsFieldPolicy = {
+	priority?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type topic_max_fieldsKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'priority' | 'second_speaker_id' | 'session_id' | 'speaker_id' | 'subject' | 'updated_at' | topic_max_fieldsKeySpecifier)[];
 export type topic_max_fieldsFieldPolicy = {
 	created_at?: FieldPolicy<any> | FieldReadFunction<any>,
 	description?: FieldPolicy<any> | FieldReadFunction<any>,
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	location?: FieldPolicy<any> | FieldReadFunction<any>,
+	priority?: FieldPolicy<any> | FieldReadFunction<any>,
 	second_speaker_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	session_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	speaker_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	subject?: FieldPolicy<any> | FieldReadFunction<any>,
 	updated_at?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type topic_min_fieldsKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'second_speaker_id' | 'session_id' | 'speaker_id' | 'subject' | 'updated_at' | topic_min_fieldsKeySpecifier)[];
+export type topic_min_fieldsKeySpecifier = ('created_at' | 'description' | 'id' | 'location' | 'priority' | 'second_speaker_id' | 'session_id' | 'speaker_id' | 'subject' | 'updated_at' | topic_min_fieldsKeySpecifier)[];
 export type topic_min_fieldsFieldPolicy = {
 	created_at?: FieldPolicy<any> | FieldReadFunction<any>,
 	description?: FieldPolicy<any> | FieldReadFunction<any>,
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	location?: FieldPolicy<any> | FieldReadFunction<any>,
+	priority?: FieldPolicy<any> | FieldReadFunction<any>,
 	second_speaker_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	session_id?: FieldPolicy<any> | FieldReadFunction<any>,
 	speaker_id?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -574,6 +589,34 @@ export type topic_mutation_responseKeySpecifier = ('affected_rows' | 'returning'
 export type topic_mutation_responseFieldPolicy = {
 	affected_rows?: FieldPolicy<any> | FieldReadFunction<any>,
 	returning?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type topic_stddev_fieldsKeySpecifier = ('priority' | topic_stddev_fieldsKeySpecifier)[];
+export type topic_stddev_fieldsFieldPolicy = {
+	priority?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type topic_stddev_pop_fieldsKeySpecifier = ('priority' | topic_stddev_pop_fieldsKeySpecifier)[];
+export type topic_stddev_pop_fieldsFieldPolicy = {
+	priority?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type topic_stddev_samp_fieldsKeySpecifier = ('priority' | topic_stddev_samp_fieldsKeySpecifier)[];
+export type topic_stddev_samp_fieldsFieldPolicy = {
+	priority?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type topic_sum_fieldsKeySpecifier = ('priority' | topic_sum_fieldsKeySpecifier)[];
+export type topic_sum_fieldsFieldPolicy = {
+	priority?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type topic_var_pop_fieldsKeySpecifier = ('priority' | topic_var_pop_fieldsKeySpecifier)[];
+export type topic_var_pop_fieldsFieldPolicy = {
+	priority?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type topic_var_samp_fieldsKeySpecifier = ('priority' | topic_var_samp_fieldsKeySpecifier)[];
+export type topic_var_samp_fieldsFieldPolicy = {
+	priority?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type topic_variance_fieldsKeySpecifier = ('priority' | topic_variance_fieldsKeySpecifier)[];
+export type topic_variance_fieldsFieldPolicy = {
+	priority?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type userKeySpecifier = ('created_at' | 'id' | 'password' | 'updated_at' | 'username' | userKeySpecifier)[];
 export type userFieldPolicy = {
@@ -884,6 +927,10 @@ export type TypedTypePolicies = TypePolicies & {
 		keyFields?: false | topic_aggregate_fieldsKeySpecifier | (() => undefined | topic_aggregate_fieldsKeySpecifier),
 		fields?: topic_aggregate_fieldsFieldPolicy,
 	},
+	topic_avg_fields?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | topic_avg_fieldsKeySpecifier | (() => undefined | topic_avg_fieldsKeySpecifier),
+		fields?: topic_avg_fieldsFieldPolicy,
+	},
 	topic_max_fields?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | topic_max_fieldsKeySpecifier | (() => undefined | topic_max_fieldsKeySpecifier),
 		fields?: topic_max_fieldsFieldPolicy,
@@ -895,6 +942,34 @@ export type TypedTypePolicies = TypePolicies & {
 	topic_mutation_response?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | topic_mutation_responseKeySpecifier | (() => undefined | topic_mutation_responseKeySpecifier),
 		fields?: topic_mutation_responseFieldPolicy,
+	},
+	topic_stddev_fields?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | topic_stddev_fieldsKeySpecifier | (() => undefined | topic_stddev_fieldsKeySpecifier),
+		fields?: topic_stddev_fieldsFieldPolicy,
+	},
+	topic_stddev_pop_fields?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | topic_stddev_pop_fieldsKeySpecifier | (() => undefined | topic_stddev_pop_fieldsKeySpecifier),
+		fields?: topic_stddev_pop_fieldsFieldPolicy,
+	},
+	topic_stddev_samp_fields?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | topic_stddev_samp_fieldsKeySpecifier | (() => undefined | topic_stddev_samp_fieldsKeySpecifier),
+		fields?: topic_stddev_samp_fieldsFieldPolicy,
+	},
+	topic_sum_fields?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | topic_sum_fieldsKeySpecifier | (() => undefined | topic_sum_fieldsKeySpecifier),
+		fields?: topic_sum_fieldsFieldPolicy,
+	},
+	topic_var_pop_fields?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | topic_var_pop_fieldsKeySpecifier | (() => undefined | topic_var_pop_fieldsKeySpecifier),
+		fields?: topic_var_pop_fieldsFieldPolicy,
+	},
+	topic_var_samp_fields?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | topic_var_samp_fieldsKeySpecifier | (() => undefined | topic_var_samp_fieldsKeySpecifier),
+		fields?: topic_var_samp_fieldsFieldPolicy,
+	},
+	topic_variance_fields?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | topic_variance_fieldsKeySpecifier | (() => undefined | topic_variance_fieldsKeySpecifier),
+		fields?: topic_variance_fieldsFieldPolicy,
 	},
 	user?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | userKeySpecifier | (() => undefined | userKeySpecifier),

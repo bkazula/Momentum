@@ -1,5 +1,5 @@
 import LocationInput from 'components/LocationInput'
-import { Edit, SimpleForm, TextInput, ReferenceInput, SelectInput } from 'react-admin'
+import { Edit, NumberInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'react-admin'
 import { formatSession } from './utils'
 
 const TopicEdit = (
@@ -21,6 +21,7 @@ const TopicEdit = (
       </ReferenceInput>
       <TextInput source="subject" multiline />
       <TextInput source="description" multiline />
+      <NumberInput source="priority" defaultValue="0" />
       <LocationInput />
       <ReferenceInput label="mówca" source="speaker_id" reference="speaker" resettable>
         <SelectInput optionText="name" />

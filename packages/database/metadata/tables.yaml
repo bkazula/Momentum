@@ -440,6 +440,7 @@
           - description
           - id
           - location
+          - priority
           - second_speaker_id
           - session_id
           - speaker_id
@@ -452,6 +453,7 @@
           - description
           - id
           - location
+          - priority
           - second_speaker_id
           - session_id
           - speaker_id
@@ -460,15 +462,16 @@
     - role: manager
       permission:
         columns:
-          - id
           - created_at
-          - updated_at
-          - session_id
-          - subject
           - description
+          - id
           - location
-          - speaker_id
+          - priority
           - second_speaker_id
+          - session_id
+          - speaker_id
+          - subject
+          - updated_at
         filter: {}
         allow_aggregations: true
     - role: user
@@ -477,6 +480,7 @@
           - description
           - id
           - location
+          - priority
           - second_speaker_id
           - session_id
           - speaker_id
@@ -489,6 +493,7 @@
           - description
           - id
           - location
+          - priority
           - second_speaker_id
           - session_id
           - speaker_id

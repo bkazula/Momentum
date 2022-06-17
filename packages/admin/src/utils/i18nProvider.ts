@@ -17,6 +17,7 @@ const fields = {
   title: 'tytuł',
   content: 'treść',
   published_at: 'data publikacji',
+  priority: 'priorytet',
 }
 
 const messages = {
