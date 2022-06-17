@@ -87,8 +87,8 @@ const InformationsScreen: FC = () => {
               <InfoCard
                 image={
                   isDark
-                    ? require('assets/images/info/mowcy.jpg')
-                    : require('assets/images/info/mowcy-light.jpg')
+                    ? require('assets/images/info/mowcy.png')
+                    : require('assets/images/info/mowcy.png')
                 }
                 link="/info/mowcy"
               >
@@ -101,8 +101,8 @@ const InformationsScreen: FC = () => {
               <InfoCard
                 image={
                   isDark
-                    ? require('assets/images/info/teksty.jpg')
-                    : require('assets/images/info/teksty-light.jpg')
+                    ? require('assets/images/info/teksty.png')
+                    : require('assets/images/info/teksty.png')
                 }
                 link="/info/koncert"
               >
@@ -115,8 +115,8 @@ const InformationsScreen: FC = () => {
               <InfoCard
                 image={
                   isDark
-                    ? require('assets/images/info/regulamin.jpg')
-                    : require('assets/images/info/regulamin-light.jpg')
+                    ? require('assets/images/info/regulamin.png')
+                    : require('assets/images/info/regulamin.png')
                 }
                 link="/info/regulamin"
               >

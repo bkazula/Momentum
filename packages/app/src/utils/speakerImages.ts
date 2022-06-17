@@ -1,5 +1,5 @@
 const speakerImages = {
-  placeholder: require('assets/images/speakers/holo/placeholder.jpg'),
+  placeholder: require('assets/images/speakers/holo/placeholder.png'),
   'ania-greenwood.jpg': require('assets/images/speakers/ania-greenwood.jpg'),
   'augustyniaki.jpg': require('assets/images/speakers/augustyniaki.jpg'),
   'ben-jack.jpg': require('assets/images/speakers/ben-jack.jpg'),
