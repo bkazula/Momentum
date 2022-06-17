@@ -2,7 +2,7 @@ import { DefaultTheme, DarkTheme } from '@react-navigation/native'
 import { transparentize } from 'color2k'
 
 const color = {
-  primary: '#2ac9ff',
+  primary: '#af2c24',
   dark: '#121212',
   gray: '#8e8e8e',
   light: '#ffffff',
