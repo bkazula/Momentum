@@ -30,7 +30,7 @@
       }
     },
     "web": {
-      "favicon": "./src/assets/images/favicon.ico"
+      "favicon": "./src/assets/images/icon.png"
     }
   }
 }
