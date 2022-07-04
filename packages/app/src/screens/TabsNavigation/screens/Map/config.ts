@@ -50,7 +50,7 @@ const markers: Marker[] = [
     type: 'umbrella',
   },
   {
-    title: 'Strefa Momentum na plaży',
+    title: 'Strefa na plaży',
     address: 'Na prawo od molo',
     coordinates: [15.565251, 54.186628],
     navigation: '54.186628,15.565251',
