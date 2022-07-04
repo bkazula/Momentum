@@ -18,15 +18,15 @@ const VisibleLink = styled(Link)`
 `
 
 const rules = `
-1. Każdy uczestnik KONFERENCJI MOMENTUM 2022 zobowiązany jest nosić opaskę, otrzymaną podczas rejestracji i stanowiącą jego identyfikator podczas imprezy. 
-2. Każdy uczestnik KONFERENCJI MOMENTUM 2022 zobowiązany jest uczestniczyć w programie KM22.
+1. Każdy uczestnik KONFERENCJI MOMENTUM 2022 zobowiązany jest nosić opaskę, otrzymaną podczas rejestracji i stanowiącą jego identyfikator podczas imprezy.
+2. Każdy uczestnik KONFERENCJI MOMENTUM 2022 zobowiązany jest uczestniczyć w programie wydarzenia.
 3. W trakcie wykładów oraz społeczności obowiązuje zakaz przebywania na terenie szkoły.
-4. W trakcie trwania całego wydarzenia obowiązuje całkowity zakaż zażywania jakichkolwiek środków odurzających, spożywania alkoholu oraz palenia tytoniu.
-5. Za przedmioty, wyposażenie i odzież pozostawione na terenie Hali Milenium, szkół, internatu, kąpieliska i plaży organizator nie ponosi odpowiedzialności.
-6. Każdy uczestnik wydarzenia zobowiązany jest do kąpania się tylko w kąpielisku strzeżonym przez ratowników wodnych oraz zgodnie z obowiązującym regulaminem kąpieliska.
-7. Osoby niepełnoletnie mogą przebywać poza miejscem wydarzenia oraz kąpać się w morzu tylko w wyznaczonym miejscu pod opieką swego opiekuna.
-8. Dla uczestników KONFERENCJI MOMENTUM 2022 kąpielisko i plaża czynna jest w godzinach od 13:45 do 19:30 w dniach 12-15 lipca 2022 roku. Organizator nie ponosi odpowiedzialności za osoby korzystające z kąpieliska poza dniami i godzinami określonymi w regulaminie i niestosującymi się do regulaminu kąpieliska.
-9. W godzinach 00.30 – 6.00 szkoły oraz inne miejsca noclegowe zostają zamknięte. Po godzinie 00.30 nie ma możliwości wejścia do szkoły.
+4. W trakcie trwania całego wydarzenia obowiązuje całkowity zakaz zażywania jakichkolwiek środków odurzających, spożywania alkoholu oraz palenia tytoniu.
+5. Za przedmioty, wyposażenie i odzież pozostawione na terenie Hali Milenium, szkół, kąpieliska i plaży, organizator nie ponosi odpowiedzialności.
+6. Każdy uczestnik wydarzenia zobowiązany jest do kąpania się tylko w miejscach strzeżonych przez ratowników wodnych oraz zgodnie z obowiązującym regulaminem kąpieliska.
+7. Osoby niepełnoletnie mogą przebywać poza miejscem wydarzenia oraz kąpać się w morzu tylko w wyznaczonym miejscu i tylko pod opieką swego opiekuna.
+8. Dla uczestników KONFERENCJI MOMENTUM 2022 kąpielisko i plaża czynne są w godzinach od 13:45 do 19:30 w dniach 12-15 lipca 2022 roku. Organizator nie ponosi odpowiedzialności za osoby korzystające z tych miejsc poza dniami i godzinami określonymi w regulaminie i niestosujące się do regulaminu kąpieliska.
+9. W godzinach 00.30 - 06.00 szkoły oraz inne miejsca noclegowe zostają zamknięte. Po godzinie 00.30 nie ma możliwości wejścia na teren szkoły.
 10. Każdy uczestnik KONFERENCJI MOMENTUM 2022 wyraża zgodę na rozpowszechnianie jego wizerunku w różnego rodzaju materiałach promocyjnych oraz w prasie i mediach.
 `
 
