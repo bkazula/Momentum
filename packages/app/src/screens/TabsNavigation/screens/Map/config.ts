@@ -50,6 +50,13 @@ const markers: Marker[] = [
     type: 'umbrella',
   },
   {
+    title: 'Strefa Momentum na plaży',
+    address: 'Na prawo od molo',
+    coordinates: [15.565251, 54.186628],
+    navigation: '54.186628,15.565251',
+    type: 'umbrella',
+  },
+  {
     title: 'Dworzec PKP',
     address: 'aleja Kolejowa 3, 78-100 Kołobrzeg',
     coordinates: [15.570096216683197, 54.181902042815665],
@@ -63,6 +70,7 @@ const markers: Marker[] = [
     navigation: '54.181534,15.5712486',
     type: 'bus',
   },
+  
 ]
 
 const config = {
