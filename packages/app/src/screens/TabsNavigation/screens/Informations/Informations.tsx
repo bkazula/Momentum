@@ -13,7 +13,6 @@ import InfoCard from './components/InfoCard'
 import { TileGrid, TileRow, TileColumn } from './components/TileGrid'
 import Header from 'components/Header'
 import ErrorBoundary from 'containers/error/Boundary'
-import useDarkTheme from 'hooks/useDarkTheme'
 
 export const screens = {
   InfoScreen: '',
@@ -76,50 +75,27 @@ const SongBackButton = () => {
 }
 
 const InformationsScreen: FC = () => {
-  const isDark = useDarkTheme()
-
   return (
     <ErrorBoundary>
       <View style={{ flex: 1 }}>
         <TileGrid>
           <TileRow>
             <TileColumn>
-              <InfoCard
-                image={
-                  isDark
-                    ? require('assets/images/info/mowcy.png')
-                    : require('assets/images/info/mowcy.png')
-                }
-                link="/info/mowcy"
-              >
+              <InfoCard image={require('assets/images/info/mowcy.png')} link="/info/mowcy">
                 Mówcy
               </InfoCard>
             </TileColumn>
           </TileRow>
           <TileRow>
             <TileColumn>
-              <InfoCard
-                image={
-                  isDark
-                    ? require('assets/images/info/teksty.png')
-                    : require('assets/images/info/teksty.png')
-                }
-                link="/info/koncert"
-              >
+              <InfoCard image={require('assets/images/info/teksty.png')} link="/info/koncert">
                 Koncert na plaży
               </InfoCard>
             </TileColumn>
           </TileRow>
           <TileRow>
             <TileColumn>
-              <InfoCard
-                image={
-                  isDark
-                    ? require('assets/images/info/regulamin.png')
-                    : require('assets/images/info/regulamin.png')
-                }
-                link="/info/regulamin"
-              >
+              <InfoCard image={require('assets/images/info/regulamin.png')} link="/info/regulamin">
                 Regulamin
               </InfoCard>
             </TileColumn>
