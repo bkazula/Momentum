@@ -64,7 +64,7 @@ const Content = styled.View`
 `
 
 const Title = styled(Text)`
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.light};
   font-family: ${({ theme }) => theme.font.headers};
   font-size: ${({ theme }) => `${theme.fontSize.m}px`};
   text-transform: uppercase;
